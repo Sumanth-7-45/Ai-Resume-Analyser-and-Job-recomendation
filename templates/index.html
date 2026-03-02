@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analyze</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="fullscreen">
+
+<form method="POST" enctype="multipart/form-data" class="form-card">
+
+    <h2>Upload Resume</h2>
+
+    <label class="custom-file">
+        <input type="file" name="resume" required>
+        <span>Select Resume File</span>
+    </label>
+
+    <input type="text" name="skills" placeholder="Required Skills" required>
+    <input type="number" name="experience" placeholder="Required Experience" required>
+    <input type="text" name="education" placeholder="Required Education" required>
+
+    <button class="primary-btn">Analyze Resume</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

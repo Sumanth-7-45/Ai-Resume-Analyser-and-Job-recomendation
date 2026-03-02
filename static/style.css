@@ -1,0 +1,165 @@
+/* GOOGLE FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+/* FULLSCREEN CENTER */
+.fullscreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BIG HEADINGS */
+h1 {
+    font-size: 65px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 45px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+/* BUTTON */
+.primary-btn {
+    padding: 15px 40px;
+    background: #00ffc3;
+    color: black;
+    font-size: 20px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    transform: scale(1.1);
+}
+
+/* SLIDESHOW */
+.slideshow {
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+    animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* FORM */
+.form-card {
+    width: 500px;
+    animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+    from {transform: translateY(100px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+}
+
+/* FILE BUTTON */
+.custom-file {
+    position: relative;
+}
+
+.custom-file input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+}
+
+.custom-file span {
+    display: block;
+    background: #00ffc3;
+    color: black;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* RESULT PAGE */
+.result-wrapper {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* CIRCLE */
+.progress-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 30px auto;
+}
+
+.progress-wrapper svg {
+    transform: rotate(-90deg);
+}
+
+.percentage-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    font-weight: bold;
+}
+
+/* RESULT GRID */
+.result-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.card {
+    width: 300px;
+    padding: 30px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.success { border-top: 5px solid #00ffc3; }
+.danger { border-top: 5px solid #ff4d4d; }

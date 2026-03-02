@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="fullscreen">
+
+<div class="result-wrapper">
+
+<h2>Resume Analysis Result</h2>
+
+<div class="progress-wrapper">
+    <svg width="300" height="300">
+        <circle cx="150" cy="150" r="130"
+                stroke="#333"
+                stroke-width="20"
+                fill="none"/>
+        <circle id="progressCircle"
+                cx="150" cy="150" r="130"
+                stroke="#00ffc3"
+                stroke-width="20"
+                fill="none"
+                stroke-linecap="round"
+                stroke-dasharray="817"
+                stroke-dashoffset="817"/>
+    </svg>
+    <div id="percentageText" class="percentage-text">0%</div>
+</div>
+
+<h3>Status: {{ result.status }}</h3>
+
+<div class="result-grid">
+
+<div class="card">
+<h4>Experience</h4>
+<p>{{ result.resume_exp }} Years</p>
+</div>
+
+<div class="card success">
+<h4>Matched Skills</h4>
+{% for skill in result.matched_skills %}
+<p>{{ skill }}</p>
+{% endfor %}
+</div>
+
+<div class="card danger">
+<h4>Missing Skills</h4>
+{% for skill in result.missing_skills %}
+<p>{{ skill }}</p>
+{% endfor %}
+</div>
+
+</div>
+
+<a href="/analyze" class="primary-btn" style="margin-top:40px;">Analyze Another</a>
+
+</div>
+</div>
+
+<script>
+let percent = {{ result.overall }};
+let circle = document.getElementById("progressCircle");
+let text = document.getElementById("percentageText");
+
+let radius = 130;
+let circumference = 2 * Math.PI * radius;
+
+circle.style.strokeDasharray = circumference;
+
+let current = 0;
+
+let interval = setInterval(() => {
+    if (current >= percent) {
+        clearInterval(interval);
+    } else {
+        current++;
+        text.innerText = current + "%";
+        let offset = circumference - (current / 100) * circumference;
+        circle.style.strokeDashoffset = offset;
+    }
+}, 10);
+</script>
+
+</body>
+</html>
