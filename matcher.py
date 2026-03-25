@@ -15,7 +15,6 @@ def match_resume(resume_text, required_skills, required_exp, required_edu):
 
     skill_score = (len(matched_skills) / len(skills_list)) * 100 if skills_list else 0
 
-    # Experience
     years_found = re.findall(r'(\d+)\s+year', resume_text)
     years_found = [int(y) for y in years_found]
     resume_exp = max(years_found) if years_found else 0
@@ -27,7 +26,6 @@ def match_resume(resume_text, required_skills, required_exp, required_edu):
     else:
         exp_score = (resume_exp / required_exp) * 100
 
-    # Education (OR logic)
     edu_list = [e.strip().lower() for e in required_edu.split(",")]
     edu_score = 0
 
@@ -47,9 +45,6 @@ def match_resume(resume_text, required_skills, required_exp, required_edu):
 
     return {
         "overall": overall,
-        "skill_score": round(skill_score, 2),
-        "exp_score": round(exp_score, 2),
-        "edu_score": round(edu_score, 2),
         "matched_skills": matched_skills,
         "missing_skills": missing_skills,
         "resume_exp": resume_exp,

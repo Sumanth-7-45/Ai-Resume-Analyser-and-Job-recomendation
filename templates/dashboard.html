@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <style>
+        .option-container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+        }
+
+        .option-btn {
+            width: 350px;
+            height: 220px;
+            font-size: 28px;
+            font-weight: bold;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .ats-btn {
+            background: #00ffc3;
+            color: black;
+        }
+
+        .job-btn {
+            background: #ff9800;
+            color: black;
+        }
+
+        .option-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="option-container">
+
+    <!-- ATS BUTTON -->
+    <a href="/analyze">
+        <button class="option-btn ats-btn">
+            Check ATS Score
+        </button>
+    </a>
+
+    <!-- JOB BUTTON -->
+    <a href="/jobs">
+        <button class="option-btn job-btn">
+            Fetch Your Jobs
+        </button>
+    </a>
+
+</div>
+
+</body>
+</html>
